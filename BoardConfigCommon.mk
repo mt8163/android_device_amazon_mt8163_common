@@ -1,6 +1,12 @@
 BOARD_VENDOR := amazon
 DEVICE_COMMON := device/amazon/mt8163-common
 
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_COMMON)/include
+
+# Bootloader
+TARGET_NO_BOOTLOADER := true
+
+
 
 
 #Arch
@@ -82,25 +88,15 @@ BOARD_HAS_BLUETOOTH := true
 # Display
 BOARD_EGL_CFG := $(DEVICE_COMMON)/egl.cfg
 USE_OPENGL_RENDERER := true
-NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 TARGET_USES_C2D_COMPOSITION := true
 TARGET_USES_OVERLAY := true
-PRESENT_TIME_OFFSET_FROM_VSYNC_NS := 0
-MAX_VIRTUAL_DISPLAY_DIMENSION := 1
-TARGET_DISPLAY_USE_RETIRE_FENCE := true
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
 MAX_EGL_CACHE_SIZE := 1024*1024
-MTK_HWC_SUPPORT := yes
-MTK_HWC_VERSION := 1.4.1
-TARGET_BOARD_PLATFORM_GPU := mali-t720 mp2
+TARGET_FORCE_HWC_FOR_VIRTUAL_DISPLAYS := true
+
 
 
 BACKLIGHT_PATH := /sys/class/leds/lcd-backlight/brightness
-TARGET_BOOTLOADER_BOARD_NAME : $(PRODUCT_DEVICE)
-
-# OTA assert
-TARGET_OTA_ASSERT_DEVICE:= $(PRODUCT_DEVICE)
-AB_OTA_UPDATER := false
 
 # Flags
 TARGET_GLOBAL_CFLAGS += -mfpu=neon -mfloat-abi=softfp
@@ -127,10 +123,6 @@ DEVICE_RESOLUTION := 800x1280
 
 #vold
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/devices/platform/mt_usb/musb-hdrc.0.auto/gadget/lun0/file
-
-
-#include vendor stuff
-include vendor/amazon/karnak/karnak-vendor.mk
 
 #BACKLIGHTS
 TARGET_PROVIDES_LIBLIGHT := true
