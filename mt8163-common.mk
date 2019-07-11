@@ -7,11 +7,23 @@ PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 DEVICE_COMMON := device/amazon/mt8163-common
 LOCAL_PATH := $(DEVICE_COMMON)
 
-
+ifeq ($(TARGET_DEVICE),karnak)
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal large
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+PRODUCT_AAPT_PREBUILT_DPI := xxhdpi xhdpi hdpi
+endif
+ifeq ($(TARGET_DEVICE),mustang)
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+endif
 
+# AOSP overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_COMMON)/overlay-common
+
+
+
+# Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
     audio.usb.default \
@@ -31,7 +43,7 @@ PRODUCT_PACKAGES += \
     libmockdrmcryptoplugin \
     libdrmclearkeyplugin \
 
-#vendor_libs
+# vendor_libs
 PRODUCT_PACKAGES += \
  lights.mt8163 \
  power.mt8163 \
@@ -44,15 +56,11 @@ PRODUCT_PACKAGES += \
 
 
 
-#su
-PRODUCT_PACKAGES += \
-	su 
 
 
 
-#camera
-PRODUCT_PACKAGES += \
-    Snap
+# Camera
+PRODUCT_PACKAGES += Snap
 
    
 
@@ -62,8 +70,7 @@ PRODUCT_PACKAGES += \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf \
-    wifi2agps 
+    wpa_supplicant.conf  
 	
 	
 	
@@ -73,7 +80,7 @@ PRODUCT_COPY_FILES += \
 
 
 
-#usb
+# USB
 PRODUCT_PACKAGES += \
  com.android.future.usb.accessory 
 
@@ -104,6 +111,17 @@ PRODUCT_PACKAGES += \
 # WallpaperPicker
 PRODUCT_PACKAGES += \
     WallpaperPicker
+
+PRODUCT_PACKAGES += \
+	charger \
+	charger_res_images
+
+
+# Filesystem management tools
+PRODUCT_PACKAGES += \
+	make_ext4fs \
+	e2fsck \
+	setup_fs
 
 
 
@@ -153,7 +171,8 @@ PRODUCT_COPY_FILES += \
 #libshims
 PRODUCT_PACKAGES += \
 libshim_asp \
-
+libshim_egl \
+libshim_ui 
 
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
