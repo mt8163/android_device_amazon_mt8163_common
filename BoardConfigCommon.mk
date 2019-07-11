@@ -59,6 +59,10 @@ WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_STA:=P2P
 
+
+
+
+
 # MTK Common stuff
 TARGET_BOARD_PLATFORM := mt8163
 BOARD_USES_MTK_AUDIO := true
@@ -115,7 +119,9 @@ MALLOC_SVELTE := true
 
 
 #TWRP COMMON
-#RECOVERY_VARIANT := twrp
+ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))
+RECOVERY_VARIANT := twrp
+endif
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_THEME := portrait_hdpi
 TARGET_RECOVERY_FSTAB := $(DEVICE_COMMON)/rootdir/recovery.fstab
@@ -141,7 +147,14 @@ TARGET_SYSTEM_PROP += $(DEVICE_COMMON)/system.prop
 #SENSORS
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
+
+# Webkit
+ENABLE_WEBGL := true
+TARGET_FORCE_CPU_UPLOAD := true
+
+
+
+
 # extras
 WITHOUT_CHECK_API := true
 ALLOW_MISSING_DEPENDENCIES := true
