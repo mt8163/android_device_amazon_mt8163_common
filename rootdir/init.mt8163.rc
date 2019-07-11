@@ -15,7 +15,7 @@ on init
 
 # signed off by kaijones23
 # libshim
- export LD_SHIM_LIBS "/system/lib/libasp.so|libshim_asp.so:/system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so:/system/vendor/lib/egl/libGLES_mali.so|libshim_egl.so:system/vendor/lib/libgui_ext.so|libshim_ui.so"
+ export LD_SHIM_LIBS "/system/lib/libasp.so|libshim_asp.so:/system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so:/system/vendor/lib/egl/libGLES_mali.so|libshim_egl.so:/system/vendor/lib/libgui_ext.so|libshim_ui.so"
 
     service fuse_usbotg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbotg /storage/usbotg
     class late_start

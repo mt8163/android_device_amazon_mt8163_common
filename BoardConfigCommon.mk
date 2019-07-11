@@ -154,7 +154,12 @@ TARGET_NO_SENSOR_PERMISSION_CHECK := true
 ENABLE_WEBGL := true
 TARGET_FORCE_CPU_UPLOAD := true
 
-
+# Libshims
+TARGET_LD_SHIM_LIBS := \
+/system/lib/libasp.so|libshim_asp.so \
+/system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so \
+/system/vendor/lib/egl/libGLES_mali.so|libshim_egl.so \
+/system/vendor/lib/libgui_ext.so|libshim_ui.so 
 
 
 # extras
