@@ -64,17 +64,31 @@ ro.audio.hw_vol_devices=0x0C
 ro.recovery.wl.maxstore=524288
 # wifi rssi->bar thresholds
 persist.wifi.rssi.thresholds=-92,-79,-70,-60
+#common stuff
+ril.specific.sm_cause=0
+ril.external.md=0
+ro.btstack=blueangel
+service.wcn.driver.ready=no
+drm.service.enabled=true
+ro.have_aacencode_feature=1
 ro.sf.lcd_density=160
+ro.sys.sdcardfs=1
+ro.media.maxmem=500000000
+ro.product.config.type=A1C66CX2XD756O
+net.bt.name=Android
+touch.pressure.scale=0.1
+ro.max.fling_velocity=30000
+ro.telephony.default_network=0
+
+
+
+
+#mediatek_props
 ro.mediatek.chip_ver=S01
 ro.mediatek.version.release=ALPS.W10.24.p0
 ro.mediatek.platform=MT8163
 ro.mtk_key_manager_kb_path=1
-ril.specific.sm_cause=0
-ril.external.md=0
-ro.btstack=blueangel
 persist.mtk.wcn.combo.chipid=-1
-service.wcn.driver.ready=no
-drm.service.enabled=true
 mtk_in_house_tee_support=true
 ro.mtk_sec_video_full_support=1
 mediatek.wlan.chip=CONSYS_MT8163
@@ -99,7 +113,6 @@ ro.mtk_ipo_support=1
 ro.mtk_search_db_support=1
 ro.mtk_dialer_search_support=1
 ro.mtk_dhcpv6c_wifi=1
-ro.have_aacencode_feature=1
 ro.mtk_phone_voice_recording=1
 ro.mtk_oma_drm_support=1
 ro.mtk_cta_drm_support=1
@@ -112,7 +125,6 @@ ro.mtk_send_rr_support=1
 ro.mtk_emmc_support=1
 ro.mtk_tetheringipv6_support=1
 ro.mtk_phone_number_geo=1
-ro.telephony.default_network=0
 ro.mtk_shared_sdcard=1
 ro.mtk_flight_mode_power_off_md=1
 ro.mtk_pq_color_mode=1
@@ -152,9 +164,4 @@ persist.mtk.wcn.patch.version=-1
 persist.mtk.wcn.dynamic.dump=0
 persist.mtk.connsys.poweron.ctl=0
 mtk.vdec.waitkeyframeforplay=1
-ro.sys.sdcardfs=1
-ro.media.maxmem=500000000
-ro.product.config.type=A1C66CX2XD756O
-net.bt.name=Android
-touch.pressure.scale=0.1
-ro.max.fling_velocity=30000
+

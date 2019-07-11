@@ -130,11 +130,6 @@ PRODUCT_COPY_FILES += \
 
 
 
-
-
-
-
-
 #CODECS
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/configs/media_codecs_dolby_audio.xml:system/etc/media_codecs_dolby_audio.xml \

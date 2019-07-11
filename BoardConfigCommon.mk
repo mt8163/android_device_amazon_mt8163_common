@@ -115,10 +115,18 @@ MALLOC_SVELTE := true
 
 
 #TWRP COMMON
-TARGET_RECOVERY_FSTAB := $(DEVICE_COMMON)/rootdir/recovery.fstab
+#RECOVERY_VARIANT := twrp
 BOARD_HAS_NO_SELECT_BUTTON := true
+TW_THEME := portrait_hdpi
+TARGET_RECOVERY_FSTAB := $(DEVICE_COMMON)/rootdir/recovery.fstab
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone2/temp
-DEVICE_RESOLUTION := 800x1280
+TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
+TW_DEFAULT_EXTERNAL_STORAGE := true
+TW_INCLUDE_CRYPTO := true
+TW_CRYPTO_USE_SYSTEM_VOLD := true
+TW_BRIGHTNESS_PATH := /sys/class/leds/lcd-backlight/brightness
+TW_DEFAULT_BRIGHTNESS := 128
+TW_AMONET := true
 
 
 #vold

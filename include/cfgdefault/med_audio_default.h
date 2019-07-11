@@ -683,19 +683,19 @@
 #define FIR_input_index \
     0,0,0,0,0,0,0,0
 #define MED_SPEECH_NORMAL_MODE_PARA \
-     0,     0,     0,     0,     0,     0,     0,     0,\ 
+     0,     0,     0,     0,     0,     0,     0,     0,\
      0,     0,     0,     0,     0,     0,     0,     0 
 #define MED_SPEECH_EARPHONE_MODE_PARA \
-     0,     0,     0,     0,     0,     0,     0,     0,\ 
+     0,     0,     0,     0,     0,     0,     0,     0,\
      0,     0,     0,     0,     0,     0,     0,     0 
 #define MED_SPEECH_BT_EARPHONE_MODE_PARA \
-     0,     0,     0,     0,     0,     0,     0,     0,\ 
+     0,     0,     0,     0,     0,     0,     0,     0,\
      0,     0,     0,     0,     0,     0,     0,     0 
 #define MED_SPEECH_LOUDSPK_MODE_PARA \
-     0,     0,     0,     0,     0,     0,     0,     0,\ 
+     0,     0,     0,     0,     0,     0,     0,     0,\
      0,     0,     0,     0,     0,     0,     0,     0 
 #define MED_SPEECH_CARKIT_MODE_PARA \
-     0,     0,     0,     0,     0,     0,     0,     0,\ 
+     0,     0,     0,     0,     0,     0,     0,     0,\
      0,     0,     0,     0,     0,     0,     0,     0 
 #define MED_SPEECH_BT_CORDLESS_MODE_PARA \
     0,      0,      0,      0,      0,      0,      0,      0, \
