@@ -9,14 +9,7 @@ TARGET_NO_BOOTLOADER := true
 
 
 
-#Arch
-TARGET_ARCH := arm
-TARGET_CPU_VARIANT := cortex-a7
-TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a7
-TARGET_CPU_VARIANT:= cortex-a7
-TARGET_CPU_ABI := armeabi-v7a
-TARGET_CPU_ABI2 := armeabi
+
 TARGET_CPU_SMP := true
 TARGET_USES_64_BIT_BINDER := true
 
