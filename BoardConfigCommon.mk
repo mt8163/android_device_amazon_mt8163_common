@@ -8,7 +8,7 @@ TARGET_NO_BOOTLOADER := true
 
 
 # Device overlay
-DEVICE_PACKAGE_OVERLAYS += $(DEVICE_COMMON)/overlay
+DEVICE_PACKAGE_OVERLAYS += $(DEVICE_COMMON)/overlay-lineage
 
 #Arch
 TARGET_ARCH := arm
@@ -136,7 +136,7 @@ TARGET_FORCE_CPU_UPLOAD := true
 #RECOVERY_VARIANT := twrp
 BOARD_HAS_NO_SELECT_BUTTON := true
 TW_THEME := portrait_hdpi
-TARGET_RECOVERY_FSTAB := $(DEVICE_COMMON)/rootdir/recovery.fstab
+TARGET_RECOVERY_FSTAB := $(DEVICE_COMMON)/recovery.fstab
 TW_CUSTOM_CPU_TEMP_PATH := /sys/devices/virtual/thermal/thermal_zone2/temp
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun/file
 TW_DEFAULT_EXTERNAL_STORAGE := true
@@ -156,6 +156,11 @@ TARGET_PROVIDES_LIBLIGHT := true
 #system Prop
 TARGET_SYSTEM_PROP += $(DEVICE_COMMON)/system.prop
 
+# Shims
+LINKER_FORCED_SHIM_LIBS := \
+    /system/lib/libasp.so|libshim_asp.so \
+    /system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so \
+    /system/bin/amzn_drmprov_check|libshim_dha.so	
 #SENSORS
 TARGET_NO_SENSOR_PERMISSION_CHECK := true
 

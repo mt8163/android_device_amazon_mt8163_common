@@ -42,19 +42,12 @@ PRODUCT_PACKAGES += \
  gralloc.default \
  librs_jni 
 
-
-
 #su
 PRODUCT_PACKAGES += \
 	su 
-
-
-
 #camera
 PRODUCT_PACKAGES += \
     Snap
-
-   
 
 #wifi
 PRODUCT_PACKAGES += \
@@ -65,40 +58,26 @@ PRODUCT_PACKAGES += \
     wpa_supplicant.conf \
     libwifi-hal-mt66xx \
 	
-	
 #Ramdisk
 PRODUCT_COPY_FILES += \
     $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir,root)
-
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
     $(LOCAL_PATH)/seccomp-policy
 
-
-#usb
+#USB
 PRODUCT_PACKAGES += \
  com.android.future.usb.accessory 
 
 # Default.prop
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    ro.secure=0 \
-    ro.adb.secure=0 \
     persist.service.acm.enable=0 \
     persist.sys.dun.override=0 \
     camera.disable_zsl_mode=1 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
-    ro.mtk_key_manager_kb_path=1 \
-    persist.sys.usb.config=mtp,adb \
-    persist.service.adb.enable=1 \
-    persist.service.debuggable=1
-
-#Build.prop
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb \
-    persist.service.adb.enable=1 \
-    persist.service.debuggable=1
+    ro.mtk_key_manager_kb_path=1 
 
 #Display
 PRODUCT_PACKAGES += \
@@ -130,14 +109,7 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
     frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
-
-
-
-
-
-
-
-#CODECS
+# CODECS
 PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/configs/media_codecs_dolby_audio.xml:system/etc/media_codecs_dolby_audio.xml \
   $(LOCAL_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
@@ -150,12 +122,10 @@ PRODUCT_COPY_FILES += \
   frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:system/etc/media_codecs_google_video.xml 
 
-
-
-
-#libshims
+# libshims
 PRODUCT_PACKAGES += \
 libshim_asp \
+libshim_dha 
 
 
 # call dalvik heap config
