@@ -5,12 +5,12 @@ PRODUCT_CHARACTERISTICS := tablet
 PRODUCT_BUILD_PROP_OVERRIDES += BUILD_UTC_DATE=0
 
 DEVICE_COMMON := device/amazon/mt8163-common
-LOCAL_PATH := $(DEVICE_COMMON)
-
+DEVICE_PATH:= $(DEVICE_COMMON)
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal large
-PRODUCT_AAPT_PREF_CONFIG := hdpi
+PRODUCT_AAPT_CONFIG := normal mdpi
+PRODUCT_AAPT_PREF_CONFIG := mdpi
+
 
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
@@ -49,22 +49,30 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     Snap
 
+# network
+PRODUCT_PACKAGES += \
+    netd
+
+# IPv6 tethering
+PRODUCT_PACKAGES += \
+    ebtables \
+    ethertypes
+
 #wifi
 PRODUCT_PACKAGES += \
     libwpa_client \
     hostapd \
     dhcpcd.conf \
     wpa_supplicant \
-    wpa_supplicant.conf \
-    libwifi-hal-mt66xx \
+    wpa_supplicant.conf 
 	
 #Ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/rootdir,root)
+    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
-    $(LOCAL_PATH)/seccomp-policy
+    $(DEVICE_PATH)/seccomp-policy
 
 #USB
 PRODUCT_PACKAGES += \
@@ -82,13 +90,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
 #Display
 PRODUCT_PACKAGES += \
     libion \
-  
-# WallpaperPicker
-PRODUCT_PACKAGES += \
-    WallpaperPicker
-
-
-
+ 
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/tablet_core_hardware.xml:system/etc/permissions/tablet_core_hardware.xml \
@@ -111,12 +113,12 @@ PRODUCT_COPY_FILES += \
 
 # CODECS
 PRODUCT_COPY_FILES += \
-  $(LOCAL_PATH)/configs/media_codecs_dolby_audio.xml:system/etc/media_codecs_dolby_audio.xml \
-  $(LOCAL_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
-  $(LOCAL_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
-  $(LOCAL_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
-  $(LOCAL_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
-  $(LOCAL_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
+  $(DEVICE_PATH)/configs/media_codecs_dolby_audio.xml:system/etc/media_codecs_dolby_audio.xml \
+  $(DEVICE_PATH)/configs/media_codecs_mediatek_audio.xml:system/etc/media_codecs_mediatek_audio.xml \
+  $(DEVICE_PATH)/configs/media_codecs_mediatek_video.xml:system/etc/media_codecs_mediatek_video.xml \
+  $(DEVICE_PATH)/configs/media_codecs_performance.xml:system/etc/media_codecs_performance.xml \
+  $(DEVICE_PATH)/configs/media_profiles.xml:system/etc/media_profiles.xml \
+  $(DEVICE_PATH)/configs/media_codecs.xml:system/etc/media_codecs.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_audio.xml:system/etc/media_codecs_google_audio.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:system/etc/media_codecs_google_telephony.xml \
   frameworks/av/media/libstagefright/data/media_codecs_google_video_le.xml:system/etc/media_codecs_google_video_le.xml \

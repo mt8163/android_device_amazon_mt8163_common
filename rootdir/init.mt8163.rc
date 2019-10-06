@@ -12,8 +12,6 @@ on early-init
     wait /dev/.coldboot_done 10
 
 on init
-    export LD_SHIM_LIBS "/system/lib/libasp.so|libshim_asp.so:/system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so"
-
     mount tmpfs tmpfs /mnt/media_rw/ mode=0755,uid=1000,gid=1000
     mkdir /mnt/media_rw/usbotg 0700 media_rw media_rw
     mkdir /storage/usbotg 0700 root root
@@ -1072,9 +1070,6 @@ service persistentLogging /system/bin/logcat -r 1024 -n 9 -v threadTime -f /cach
 
 
 on post-fs
-    # Allow writing to the kernel trace log.
-    chmod 0222 /sys/kernel/debug/tracing/trace_marker
-
     # fix permission with memtrack
     chown system system /sys/kernel/debug/ion/heaps/ion_mm_heap
     

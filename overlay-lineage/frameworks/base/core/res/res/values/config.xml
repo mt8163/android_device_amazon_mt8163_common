@@ -11,8 +11,8 @@
     </string-array>
 
 
-            <!-- radio modes. -->
-    <string-array name="radioAttributes" translatable="false">
+  <!-- radio modes. -->
+<string-array name="radioAttributes" translatable="false">
         <item>1,1</item>
         <item>7,1</item>
         <item>9,1</item>
@@ -29,22 +29,31 @@
         <item>403</item>
         <item>502</item>
         <item>650</item>
+	<item>720</item>
+	<item>750</item>
+	<item>845</item>
+	<item>845</item>
     </integer-array>
 
-	<integer-array name="config_autoBrightnessLcdBacklightValues">
+   <integer-array name="config_autoBrightnessLcdBacklightValues">
         <item>10</item>
         <item>20</item>
         <item>30</item>
-        <item>5</item>
-        <item>87</item>
+        <item>50</item>
+	<item>60</item>
+        <item>70</item>        
+	<item>87</item>
         <item>114</item>
         <item>139</item>
         <item>179</item>
         <item>210</item>
         <item>255</item>
         <item>255</item>
- </integer-array>
+    </integer-array>
 
+     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
 
 
     <bool name="config_voice_capable">false</bool>
@@ -68,9 +77,6 @@
     <!-- If supported, are dreams enabled? (by default) -->
     <bool name="config_dreamsEnabledByDefault">true</bool>
 
-
-    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
-
   <!-- If this is true, the screen will come on when you plug/unplug usb/power/whatever. -->
     <bool name="config_unplugTurnsOnScreen">true</bool>
 
@@ -78,15 +84,11 @@
          it causes the device to wake up.
          The default is false. -->
     <bool name="config_lidControlsSleep">true</bool>
-    
-
-
-    <!--  Maximum number of supported users -->
+        <!--  Maximum number of supported users -->
     <integer name="config_multiuserMaximumUsers">4</integer>
 
     <!--  Whether Multiuser UI should be shown -->
     <bool name="config_enableMultiUserUI">true</bool>
-<bool name="config_user_notification_of_restrictied_mobile_access">false</bool>
     <!-- Enable doze mode
          ComponentName of a dream to show whenever the system would otherwise have gone to sleep. -->
     <string name="config_dozeComponent">com.android.systemui/com.android.systemui.doze.DozeService</string>
@@ -95,6 +97,7 @@
     <bool name="config_dozeAfterScreenOff">true</bool>
     <!-- Specifies whether to decouple the interactive state of the device from the display on/off state. -->
     <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    
     <!-- Auto Power Modes is required for Doze and App Standby -->
     <bool name="config_enableAutoPowerModes">true</bool>
 
