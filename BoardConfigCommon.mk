@@ -50,7 +50,6 @@ BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE := ext4
 # Binder API version
 TARGET_USES_64_BIT_BINDER := true
 
-
 # Bootanimation
 TARGET_BOOTANIMATION_MULTITHREAD_DECODE := true
 TARGET_BOOTANIMATION_PRELOAD := true
@@ -66,7 +65,6 @@ WIFI_DRIVER_FW_PATH_PARAM := "/dev/wmtWifi"
 WIFI_DRIVER_FW_PATH_STA:=STA
 WIFI_DRIVER_FW_PATH_AP:=AP
 WIFI_DRIVER_FW_PATH_P2P:=P2P
-
 
 # Partitions informations
 BOARD_FLASH_BLOCK_SIZE := 131072
@@ -120,7 +118,6 @@ LINKER_FORCED_SHIM_LIBS := \
     /system/lib/libasp.so|libshim_asp.so \
     /system/lib/hw/amzn_drmprov.mt8163.so|libshim_asp.so \
     /system/bin/amzn_drmprov_check|libshim_dha.so	
-
 
 # TWRP
 ifneq (,$(strip $(wildcard bootable/recovery-twrp/twrp.cpp)))

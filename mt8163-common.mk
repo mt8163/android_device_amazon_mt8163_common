@@ -12,19 +12,21 @@ PRODUCT_AAPT_CONFIG := normal mdpi
 PRODUCT_AAPT_PREF_CONFIG := mdpi
 
 
+# Audio
 PRODUCT_PACKAGES += \
     audio.a2dp.default \
-    audio.usb.default \
-    audio.r_submix.default \
-    audio_policy.default \
     audio_policy.stub \
-    libaudioroute \
-    libaudio-resampler \
-    libaudiopolicymanagerdefault \
-    libtinycompress \
+    audio.r_submix.default \
+    audio.usb.default \
     libalsautils \
-    libtinyxml
-	
+    libaudio-resampler \
+    libaudioroute \
+    libaudiospdif \
+    libeffects
+    libtinyalsa \
+    libtinycompress \
+    libtinyxml \
+
 # DRM
 PRODUCT_PACKAGES += \
     libdrm \
@@ -80,12 +82,14 @@ PRODUCT_PACKAGES += \
 
 # Default.prop
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.service.acm.enable=0 \
-    persist.sys.dun.override=0 \
     camera.disable_zsl_mode=1 \
     sys.usb.ffs.aio_compat=1 \
     ro.mount.fs=EXT4 \
     ro.mtk_key_manager_kb_path=1 
+
+# Bluetooth
+PRODUCT_PACKAGES += \
+	bluetooth.default
 
 #Display
 PRODUCT_PACKAGES += \
@@ -129,11 +133,8 @@ PRODUCT_PACKAGES += \
 libshim_asp \
 libshim_dha 
 
-
 # call dalvik heap config
 $(call inherit-product, frameworks/native/build/tablet-7in-hdpi-1024-dalvik-heap.mk)
 
 # call hwui memory config
 $(call inherit-product-if-exists, frameworks/native/build/phone-xxhdpi-2048-hwui-memory.mk)
-
-   
