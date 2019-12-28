@@ -8,8 +8,8 @@ DEVICE_COMMON := device/amazon/mt8163-common
 DEVICE_PATH:= $(DEVICE_COMMON)
 
 # Device uses high-density artwork where available
-PRODUCT_AAPT_CONFIG := normal mdpi
-PRODUCT_AAPT_PREF_CONFIG := mdpi
+PRODUCT_AAPT_CONFIG := normal large xhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 
 # Audio
