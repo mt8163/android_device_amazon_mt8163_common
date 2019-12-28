@@ -22,10 +22,10 @@ PRODUCT_PACKAGES += \
     libaudio-resampler \
     libaudioroute \
     libaudiospdif \
-    libeffects
+    libeffects \
     libtinyalsa \
     libtinycompress \
-    libtinyxml \
+    libtinyxml 
 
 # DRM
 PRODUCT_PACKAGES += \
