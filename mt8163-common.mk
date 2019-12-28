@@ -70,7 +70,7 @@ PRODUCT_PACKAGES += \
 	
 #Ramdisk
 PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(DEVICE_PATH)/rootdir,root)
+    $(call find-copy-subdir-files,*,$(DEVICE_COMMON)/rootdir,root)
 
 # Media Extractors
 BOARD_SECCOMP_POLICY := \
