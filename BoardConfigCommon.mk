@@ -35,8 +35,6 @@ BOARD_MKBOOTIMG_ARGS := \
     --second_offset $(BOARD_SECOND_OFFSET)   \
     --tags_offset $(BOARD_KERNEL_TAGS_OFFSET)
 
-TARGET_PREBUILT_KERNEL := device/amazon/karnak/prebuilt/Image.gz-dtb
-
 BOARD_KERNEL_CMDLINE := bootopt=64S3,32N2,64N2
 BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 
@@ -137,8 +135,6 @@ TW_AMONET := true
 
 #Use dlmalloc instead of jemalloc for mallocs
 MALLOC_SVELTE := true
-
-$(shell mkdir -p $(OUT)/obj/KERNEL_OBJ/usr)
 
 # Disable Api Check 
 WITHOUT_CHECK_API := true
